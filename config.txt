@@ -1,0 +1,6 @@
+memory_limit_bytes=1048576
+
+read_delay_ms=0
+write_delay_ms=0
+rewind_delay_ms=0
+move_delay_ms=0
