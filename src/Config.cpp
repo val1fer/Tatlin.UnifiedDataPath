@@ -17,11 +17,11 @@ Config::Config(const std::string& filename) {
     loadFromFile(filename);
 }
 
-Duration Config::parseDuration(int32_t ms) {
+constexpr Duration Config::parseDuration(int32_t ms) noexcept {
     return Duration(ms);
 }
 
-std::string Config::trim(const std::string& str) {
+std::string Config::trim(const std::string& str) noexcept {
     size_t start = 0;
     while (start < str.size() && std::isspace(static_cast<unsigned char>(str[start]))) {
         ++start;

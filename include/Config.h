@@ -10,10 +10,10 @@ class Duration {
 public:
     using Milliseconds = std::chrono::milliseconds;
     
-    Duration() : duration_(0) {}
-    explicit Duration(int32_t ms) : duration_(ms) {}
+    constexpr Duration() : duration_(0) {}
+    constexpr explicit Duration(int32_t ms) : duration_(ms) {}
     
-    int32_t count() const { return duration_.count(); }
+    constexpr int32_t count() const noexcept { return duration_.count(); }
     
 private:
     Milliseconds duration_;
@@ -32,8 +32,8 @@ public:
     Duration moveDelay_;
     
 private:
-    static Duration parseDuration(int32_t ms);
-    static std::string trim(const std::string& str);
+    static constexpr Duration parseDuration(int32_t ms) noexcept;
+    static std::string trim(const std::string& str) noexcept;
     
     static constexpr size_t DEFAULT_MEMORY_LIMIT = 64 * 1024 * 1024;
 };
